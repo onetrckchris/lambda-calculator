@@ -1,5 +1,5 @@
 import React from "react";
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const StyledButton = styled.button`
   border: none;
@@ -7,10 +7,27 @@ export const StyledButton = styled.button`
   background-color: #245593;
   color: white;
   font-size: 1.5rem;
-  width: 55px;
-  height: 55px;
+  width: 70px;
+  height: 70px;
+  margin-bottom: 10px;
   outline: none;
   box-shadow: 0px 3px 0px #292E4F;
+
+  ${props =>
+    props.zero && css`
+      width: 145px;
+      border-radius: 60px;
+    `}
+
+  ${props =>
+    props.number && css`
+      background-color: #194378;
+    `}
+
+  ${props =>
+    props.operator && css`
+      background-color: #247192;
+    `} 
 `;
 
 const SpecialButton = props => {

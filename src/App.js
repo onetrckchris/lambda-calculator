@@ -23,7 +23,6 @@ const ButtonsSection = styled.div`
 `;
 
 const LeftOfOperators = styled.div`
-  width: 75%;
 `;
 
 function App() {
