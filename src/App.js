@@ -37,6 +37,9 @@ function App() {
   const record = (param) => {
     if(result === 0) {
       setResult(param);
+    } else if(param === 'x') {
+      param = '*';
+      setResult(result + param);
     } else {
       setResult(result + param);
     }
@@ -49,17 +52,27 @@ function App() {
       return;
     }
   }
-  
+
+  const operation = (operator) => {
+    if(operator === '=') {
+      console.log(result.split(''));
+      setResult(result.split(''));
+      setResult(eval(result));
+    } else {
+      record(operator);
+    }
+  }
+
   return (
     <Calculator>
       <Logo />
       <Display result={result} />
       <ButtonsSection>
         <LeftOfOperators>
-          <Specials clear={clear}/>
+          <Specials clear={clear} />
           <Numbers record={record} />
         </LeftOfOperators>
-        <Operators record={record} />
+        <Operators operation={operation} />
       </ButtonsSection>
     </Calculator>
   );
